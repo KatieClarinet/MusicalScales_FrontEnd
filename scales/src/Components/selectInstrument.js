@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import ShowScale from "./showScale";
 
-export default function Form() {
+export default function Form({theme}) {
     const [instrument, setinstrument] = React.useState("");
     const [grade, setGrade] = React.useState("");
 
@@ -20,7 +20,7 @@ export default function Form() {
     };
     console.log(grade);
 
-    // useEffect(() => {
+   
 
       
 
@@ -28,7 +28,7 @@ export default function Form() {
         <>
             <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
+                    <InputLabel id="demo-simple-select-label" color="secondary">
                         Instrument
                     </InputLabel>
                     <Select
@@ -44,9 +44,10 @@ export default function Form() {
                     </Select>
                 </FormControl>
             </Box>
+            <br />
             <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Grade</InputLabel>
+                    <InputLabel id="demo-simple-select-label" color="secondary">Grade</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -62,6 +63,7 @@ export default function Form() {
                     </Select>
                 </FormControl>
             </Box>
+            <br />
             <ShowScale instrument={instrument} grade={grade}/>
         </>
     );
