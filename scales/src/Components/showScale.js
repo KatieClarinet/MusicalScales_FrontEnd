@@ -8,45 +8,42 @@ import Typography from "@mui/material/Typography";
 
 const ShowScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
+    // eslint-disable-next-line
     const [buttonClicked, setButtonClicked] = React.useState(true);
 
     useEffect(() => {
         const fetchScales = async () => {
             const response = await fetch("http://localhost:3000/api/getAll");
             const data = await response.json();
-            // console.log("data", data);
+
             setScales(data);
         };
         fetchScales();
     }, []);
-    // console.log("state scales", scales);
-
 
     const handleClick = (event) => {
-setButtonClicked(current => !current)
-    }
+        setButtonClicked((current) => !current);
+    };
 
     useEffect(() => {
-showScales()
+        showScales();
+        // eslint-disable-next-line
     }, [handleClick]);
+
 
     const showScales = () => {
         console.log("instrument", instrument);
         console.log("grade", grade);
         //check that state has been saved
         if (instrument !== "" && grade !== "") {
-            // console.log("instrument and grade have been selected");
-
             return (
                 <div>
+                 {/* eslint-disable-next-line */}
                     {scales.map((scale) => {
                         if (scale.Grade === grade) {
-
-                            //length of majors array
                             let x = Math.floor(
                                 Math.random() * scale.Scales.length
                             );
-                            console.log(x);
                             const card = (
                                 <React.Fragment>
                                     <CardContent>
@@ -61,14 +58,15 @@ showScales()
                                         <Typography
                                             variant="h5"
                                             component="div"
+                                            color="secondary"
                                         >
                                             {scale.Scales[x].Key}
                                         </Typography>
                                         <Typography
                                             sx={{ mb: 1.5 }}
-                                            color="text.secondary"
+                                            color="secondary.dark"
                                         >
-                                            Range: {scale.Scales[x].Range}
+                                            {scale.Scales[x].Range}
                                         </Typography>
                                         {/* <Typography variant="body2">
                                         Range: {scale.Scales[x].Range}
@@ -76,16 +74,10 @@ showScales()
                                             {'"a benevolent smile"'}
                                         </Typography> */}
                                     </CardContent>
-                                    <CardActions>
-                                        <Button size="small">Learn More</Button>
-                                    </CardActions>
+                                    {/* <CardActions>
+                                        <Button size="small">Hint</Button>
+                                    </CardActions> */}
                                 </React.Fragment>
-                            );
-                            console.log(
-                                "scale.grade:",
-                                scale.Grade,
-                                "grade:",
-                                grade
                             );
 
                             return (
@@ -93,7 +85,6 @@ showScales()
                                     <Box sx={{ minWidth: 275 }}>
                                         <Card variant="outlined">{card}</Card>
                                     </Box>
-                                    
                                 </>
                             );
                         }
@@ -101,17 +92,23 @@ showScales()
                 </div>
             );
         }
-
     };
-
 
     return (
         <div>
             {showScales()}
-
-            <button onClick={() => {
-        handleClick();
-      }}>Pick a Scale</button>
+            <br />
+            <Button
+                variant="contained"
+                onClick={() => {
+                    handleClick();
+                }}
+            >
+                Next Scale
+            </Button>
+            <CardActions>
+                <Button size="small">Hint</Button>
+            </CardActions>
         </div>
     );
 };

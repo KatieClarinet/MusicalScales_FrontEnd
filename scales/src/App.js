@@ -2,6 +2,11 @@ import * as React from "react";
 import "./App.css";
 import Form from "./Components/selectInstrument";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Typography from "@mui/material/Typography";
 
 const theme = createTheme({
   palette: {
@@ -31,7 +36,14 @@ function App() {
         <ThemeProvider theme={theme}>
 
             <div className="App">
-           <h1>Title here...</h1>
+            <Typography
+                                            variant="h2"
+                                            component="div"
+                                            color="primary.light"
+                                        >
+                                            Scales Time!
+                                        </Typography>
+           <br />
                 <Form theme={theme}/>
            
             </div>
