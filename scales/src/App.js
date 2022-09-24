@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import * as React from "react";
+import "./App.css";
+import Form from "./Components/selectInstrument";
 
 function App() {
 
-    async function fetchScales() {
-      const response = await fetch('http://localhost:3000/api/getAll');
-      const scales = await response.json();
-      console.log(scales)
-    }
-    fetchScales()
+  
 
-return (
-  <div className="App">
-  Hello
-  </div>
-)
+    return (
+        <>
+            <div className="App">
+                <Form />
+            </div>
+        </>
+    );
 }
 
 export default App;
