@@ -1,53 +1,57 @@
 import * as React from "react";
 import "./App.css";
 import Form from "./Components/selectInstrument";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 import Typography from "@mui/material/Typography";
+import scales from "./Assets/scales.png";
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
-      spacing: 4,
+    palette: {
+        primary: {
+            light: "#757ce8",
+            main: "#64D8CB",
+            dark: "#000051",
+            contrastText: "#fff",
+            spacing: 4,
+        },
+        secondary: {
+            light: "#ff7961",
+            main: "#f44336",
+            dark: "#ba000d",
+            contrastText: "#000",
+        },
     },
-    secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+    select: {
+        "&:before": {
+            borderColor: "#ba000d",
+        },
+        "&:after": {
+            borderColor: "#ba000d",
+        },
+        root: {
+            color: "#ba000d",
+        },
     },
-  },
+    icon: {
+        fill: "#ba000d",
+    },
 });
 
-
 function App() {
-
-  
-
     return (
         <>
-        <ThemeProvider theme={theme}>
-
+            <img src={scales} alt="logo" />
             <div className="App">
-            <Typography
-                                            variant="h2"
-                                            component="div"
-                                            color="primary.light"
-                                        >
-                                            Scales Time!
-                                        </Typography>
-           <br />
-                <Form theme={theme}/>
-           
+                <ThemeProvider theme={theme}>
+                    <div className="form">
+                        <Form theme={theme} />
+                    </div>
+                </ThemeProvider>
             </div>
-        </ThemeProvider>
         </>
     );
 }

@@ -46,33 +46,33 @@ const ShowScale = ({ instrument, grade }) => {
                             );
                             const card = (
                                 <React.Fragment>
-                                    <CardContent>
-                                        {/* <Typography
+                                    <CardContent sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}>
+                                         <Typography
                                             sx={{ fontSize: 14 }}
-                                            color="text.secondary"
+                                            
                                             gutterBottom
                                         >
-                                            {/* Word of the Day */}
-                                        {/* </Typography> */}
+                                            Scale/Arpeggio
+                                        </Typography>
                                         <br />
                                         <Typography
                                             variant="h5"
                                             component="div"
-                                            color="secondary"
+                                            
                                         >
                                             {scale.Scales[x].Key}
                                         </Typography>
                                         <Typography
                                             sx={{ mb: 1.5 }}
-                                            color="secondary.dark"
+                                            
                                         >
                                             {scale.Scales[x].Range}
                                         </Typography>
-                                        {/* <Typography variant="body2">
-                                        Range: {scale.Scales[x].Range}
-                                            <br />
-                                            {'"a benevolent smile"'}
-                                        </Typography> */}
+                                        <Typography variant="body2">
+                                        Articulation
+                                            {/* <br />
+                                            {'"a benevolent smile"'} */}
+                                        </Typography>
                                     </CardContent>
                                     {/* <CardActions>
                                         <Button size="small">Hint</Button>

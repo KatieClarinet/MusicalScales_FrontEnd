@@ -7,6 +7,7 @@ import Select from "@mui/material/Select";
 import ShowScale from "./showScale";
 
 export default function Form({theme}) {
+ 
     const [instrument, setinstrument] = React.useState("");
     const [grade, setGrade] = React.useState("");
 
@@ -26,9 +27,9 @@ export default function Form({theme}) {
 
     return (
         <>
-            <Box sx={{ minWidth: 120 }}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" color="secondary">
+            <Box sx={{ minWidth: 120, color: '#64D8CB', borderColor: '#64D8CB' }} >
+                <FormControl fullWidth sx={{color: 'primary.main'}}>
+                    <InputLabel id="demo-simple-select-label"sx={{ color: '#64D8CB'}}>
                         Instrument
                     </InputLabel>
                     <Select
@@ -37,6 +38,7 @@ export default function Form({theme}) {
                         value={instrument}
                         label="instrument"
                         onChange={handleChangeInstrument}
+                        sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}
                     >
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>
                         <MenuItem value={"Violin"}>Violin</MenuItem>
@@ -45,15 +47,16 @@ export default function Form({theme}) {
                 </FormControl>
             </Box>
             <br />
-            <Box sx={{ minWidth: 120 }}>
+            <Box sx={{ minWidth: 120, borderColor: 'primary.main'}}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" color="secondary">Grade</InputLabel>
+                    <InputLabel id="demo-simple-select-label"  sx={{ color: '#64D8CB'}}>Grade</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={grade}
                         label="grade"
                         onChange={handleChangeGrade}
+                        sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}
                     >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
