@@ -27,36 +27,37 @@ export default function Form({theme}) {
 
     return (
         <>
-            <Box sx={{ minWidth: 120, color: '#64D8CB', borderColor: '#64D8CB' }} >
-                <FormControl fullWidth sx={{color: 'primary.main'}}>
-                    <InputLabel id="demo-simple-select-label"sx={{ color: '#64D8CB'}}>
+            <Box sx={{ minWidth: 120, border: 2, borderColor: 'primary.main', borderRadius: 3,}} >
+                <FormControl fullWidth theme={theme} >
+                    <InputLabel id="demo-simple-select-label"sx={{ color: 'primary.main'}}>
                         Instrument
                     </InputLabel>
                     <Select
+                    
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={instrument}
                         label="instrument"
                         onChange={handleChangeInstrument}
-                        sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}
+                        sx={{bgcolor: 'primary.dark', color: 'primary.main', borderRadius: 3, boxShadow: 1}}
                     >
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>
-                        <MenuItem value={"Violin"}>Violin</MenuItem>
-                        <MenuItem value={"Piano"}>Piano</MenuItem>
+                        <MenuItem value={"Flute"}>Flute</MenuItem>
+                        <MenuItem value={"Saxophone"}>Saxophone</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
             <br />
-            <Box sx={{ minWidth: 120, borderColor: 'primary.main'}}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label"  sx={{ color: '#64D8CB'}}>Grade</InputLabel>
+            <Box sx={{ minWidth: 120, border: 2, borderColor: 'primary.main', borderRadius: 3,}} >                
+            <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label" sx={{ color: 'primary.main'}}>Grade</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={grade}
                         label="grade"
                         onChange={handleChangeGrade}
-                        sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}
+                        sx={{bgcolor: 'primary.dark', color: 'primary.main', borderRadius: 3, boxShadow: 1}}
                     >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
@@ -67,7 +68,7 @@ export default function Form({theme}) {
                 </FormControl>
             </Box>
             <br />
-            <ShowScale instrument={instrument} grade={grade}/>
+            <ShowScale instrument={instrument} grade={grade} />
         </>
     );
 }

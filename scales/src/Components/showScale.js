@@ -40,36 +40,43 @@ const ShowScale = ({ instrument, grade }) => {
                 <div>
                  {/* eslint-disable-next-line */}
                     {scales.map((scale) => {
-                        if (scale.Grade === grade) {
+                        if (scale.Grade === grade && scale.Instrument === instrument) {
+                            //generate random number from scales array
                             let x = Math.floor(
                                 Math.random() * scale.Scales.length
                             );
+                            //generate number for articulation array
+                            let y = Math.floor(
+                                Math.random() * scale.Articulation.length
+                            );
+                            console.log(y)
                             const card = (
                                 <React.Fragment>
-                                    <CardContent sx={{bgcolor: 'primary.dark', color: '#64D8CB', borderColor: '#64D8CB', borderRadius: 3, boxShadow: 1}}>
+                                    <CardContent sx={{bgcolor: 'primary.dark', color: 'primary.main', borderRadius: 3, boxShadow: 1}}>
                                          <Typography
-                                            sx={{ fontSize: 14 }}
+                                            sx={{ fontSize: 14, color: 'primary.contrastText'}}
                                             
                                             gutterBottom
                                         >
-                                            Scale/Arpeggio
+                                           {scale.Scales[x].Type}
                                         </Typography>
                                         <br />
                                         <Typography
                                             variant="h5"
                                             component="div"
                                             
+                                            
                                         >
                                             {scale.Scales[x].Key}
                                         </Typography>
                                         <Typography
-                                            sx={{ mb: 1.5 }}
+                                            sx={{ mb: 1.5, color: 'primary.contrastText'}}
                                             
                                         >
                                             {scale.Scales[x].Range}
                                         </Typography>
                                         <Typography variant="body2">
-                                        Articulation
+                                        {scale.Articulation[y]}
                                             {/* <br />
                                             {'"a benevolent smile"'} */}
                                         </Typography>
@@ -82,8 +89,8 @@ const ShowScale = ({ instrument, grade }) => {
 
                             return (
                                 <>
-                                    <Box sx={{ minWidth: 275 }}>
-                                        <Card variant="outlined">{card}</Card>
+                                    <Box sx={{ minWidth: 275, border: 2, borderColor: 'primary.main', borderRadius: 3,}}>
+                                        <Card sx={{ bgcolor: 'primary.main'}}>{card}</Card>
                                     </Box>
                                 </>
                             );
@@ -99,6 +106,8 @@ const ShowScale = ({ instrument, grade }) => {
             {showScales()}
             <br />
             <Button
+                sx={{ color: '#fff'}}
+
                 variant="contained"
                 onClick={() => {
                     handleClick();

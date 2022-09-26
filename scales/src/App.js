@@ -15,7 +15,7 @@ const theme = createTheme({
             light: "#757ce8",
             main: "#64D8CB",
             dark: "#000051",
-            contrastText: "#fff",
+            contrastText: "#E91E63",
             spacing: 4,
         },
         secondary: {
@@ -44,8 +44,8 @@ const theme = createTheme({
 function App() {
     return (
         <>
-            <img src={scales} alt="logo" />
             <div className="App">
+            <img src={scales} alt="logo" />
                 <ThemeProvider theme={theme}>
                     <div className="form">
                         <Form theme={theme} />
