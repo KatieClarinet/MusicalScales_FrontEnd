@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+
 const ShowScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
     // eslint-disable-next-line
@@ -30,7 +31,6 @@ const ShowScale = ({ instrument, grade }) => {
         // eslint-disable-next-line
     }, [handleClick]);
 
-
     const showScales = () => {
         console.log("instrument", instrument);
         console.log("grade", grade);
@@ -38,9 +38,12 @@ const ShowScale = ({ instrument, grade }) => {
         if (instrument !== "" && grade !== "") {
             return (
                 <div>
-                 {/* eslint-disable-next-line */}
+                    {/* eslint-disable-next-line */}
                     {scales.map((scale) => {
-                        if (scale.Grade === grade && scale.Instrument === instrument) {
+                        if (
+                            scale.Grade === grade &&
+                            scale.Instrument === instrument
+                        ) {
                             //generate random number from scales array
                             let x = Math.floor(
                                 Math.random() * scale.Scales.length
@@ -49,48 +52,68 @@ const ShowScale = ({ instrument, grade }) => {
                             let y = Math.floor(
                                 Math.random() * scale.Articulation.length
                             );
-                            console.log(y)
+                            console.log(y);
                             const card = (
                                 <React.Fragment>
-                                    <CardContent sx={{bgcolor: 'primary.dark', color: 'primary.main', borderRadius: 3, boxShadow: 1}}>
-                                         <Typography
-                                            sx={{ fontSize: 14, color: 'primary.contrastText'}}
-                                            
+                                    <CardContent
+                                        sx={{
+                                            bgcolor: "primary.dark",
+                                            color: "primary.main",
+                                            borderRadius: 3,
+                                            boxShadow: 1,
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: 14,
+                                                color: "primary.contrastText",
+                                            }}
                                             gutterBottom
                                         >
-                                           {scale.Scales[x].Type}
+                                            {scale.Scales[x].Type}
                                         </Typography>
                                         <br />
                                         <Typography
                                             variant="h5"
                                             component="div"
-                                            
-                                            
                                         >
                                             {scale.Scales[x].Key}
                                         </Typography>
                                         <Typography
-                                            sx={{ mb: 1.5, color: 'primary.contrastText'}}
-                                            
+                                            sx={{
+                                                mb: 1.5,
+                                                color: "primary.contrastText",
+                                            }}
                                         >
                                             {scale.Scales[x].Range}
                                         </Typography>
                                         <Typography variant="body2">
-                                        {scale.Articulation[y]}
-                                            {/* <br />
-                                            {'"a benevolent smile"'} */}
+                                            {scale.Articulation[y]}
+
                                         </Typography>
+                                        <CardActions>
+                                            {/* <Button size="small"
+                                        
+                                        >Hint</Button> */}
+                                        </CardActions>
+                                        
                                     </CardContent>
-                                    {/* <CardActions>
-                                        <Button size="small">Hint</Button>
-                                    </CardActions> */}
                                 </React.Fragment>
                             );
 
                             return (
                                 <>
-                                    <Box sx={{ minWidth: 275, border: 2, borderColor: 'primary.main', borderRadius: 3,}}>
-                                        <Card sx={{ bgcolor: 'primary.main'}}>{card}</Card>
+                                    <Box
+                                        sx={{
+                                            minWidth: 275,
+                                            border: 2,
+                                            borderColor: "primary.main",
+                                            borderRadius: 3,
+                                        }}
+                                    >
+                                        <Card sx={{ bgcolor: "primary.main" }}>
+                                            {card}
+                                        </Card>
                                     </Box>
                                 </>
                             );
@@ -106,8 +129,7 @@ const ShowScale = ({ instrument, grade }) => {
             {showScales()}
             <br />
             <Button
-                sx={{ color: '#fff'}}
-
+                sx={{ color: "primary.dark" }}
                 variant="contained"
                 onClick={() => {
                     handleClick();
@@ -115,9 +137,6 @@ const ShowScale = ({ instrument, grade }) => {
             >
                 Next Scale
             </Button>
-            <CardActions>
-                <Button size="small">Hint</Button>
-            </CardActions>
         </div>
     );
 };

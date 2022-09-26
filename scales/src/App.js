@@ -2,14 +2,13 @@ import * as React from "react";
 import "./App.css";
 import Form from "./Components/selectInstrument";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import Typography from "@mui/material/Typography";
+
 import scales from "./Assets/scales.png";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Fredoka',
+  },
     palette: {
         primary: {
             light: "#757ce8",
