@@ -5,9 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import ShowScale from "./showScale";
-  
-export default function Form({theme}) {
- 
+
+export default function Form({ theme }) {
     const [instrument, setinstrument] = React.useState("");
     const [grade, setGrade] = React.useState("");
 
@@ -21,15 +20,14 @@ export default function Form({theme}) {
     };
     console.log(grade);
 
-   
-
-      
-
     return (
         <>
-            <Box sx={{ minWidth: 120}} >
-                <FormControl fullWidth theme={theme} >
-                    <InputLabel id="demo-simple-select-label"sx={{ color: 'primary.dark'}}>
+            <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth theme={theme}>
+                    <InputLabel
+                        id="demo-simple-select-label"
+                        sx={{ color: "primary.dark" }}
+                    >
                         Instrument
                     </InputLabel>
                     <Select
@@ -38,7 +36,13 @@ export default function Form({theme}) {
                         value={instrument}
                         label="instrument"
                         onChange={handleChangeInstrument}
-                        sx={{bgcolor: 'primary.main', color: 'primary.dark', borderRadius: 3, boxShadow: 1, borderColor: "#ba000d"}}
+                        sx={{
+                            bgcolor: "primary.main",
+                            color: "primary.dark",
+                            borderRadius: 3,
+                            boxShadow: 1,
+                            borderColor: "#ba000d",
+                        }}
                     >
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>
                         <MenuItem value={"Flute"}>Flute</MenuItem>
@@ -47,16 +51,26 @@ export default function Form({theme}) {
                 </FormControl>
             </Box>
             <br />
-            <Box sx={{ minWidth: 120}} >                
-            <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" sx={{ color: 'primary.dark'}}>Grade</InputLabel>
+            <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                    <InputLabel
+                        id="demo-simple-select-label"
+                        sx={{ color: "primary.dark" }}
+                    >
+                        Grade
+                    </InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={grade}
                         label="grade"
                         onChange={handleChangeGrade}
-                        sx={{bgcolor: 'primary.main', color: 'primary.dark', borderRadius: 3, boxShadow: 1}}
+                        sx={{
+                            bgcolor: "primary.main",
+                            color: "primary.dark",
+                            borderRadius: 3,
+                            boxShadow: 1,
+                        }}
                     >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
@@ -71,7 +85,6 @@ export default function Form({theme}) {
             </Box>
             <br />
             <ShowScale instrument={instrument} grade={grade} />
-
         </>
     );
 }

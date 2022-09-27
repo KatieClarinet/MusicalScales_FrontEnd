@@ -5,12 +5,13 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import BasicModal from "./modal";
 
 const ShowScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
     // eslint-disable-next-line
     const [buttonClicked, setButtonClicked] = React.useState(true);
+
 
     useEffect(() => {
         const fetchScales = async () => {
@@ -24,16 +25,14 @@ const ShowScale = ({ instrument, grade }) => {
 
     const handleClick = (event) => {
         setButtonClicked((current) => !current);
-    };
+ };
 
-    useEffect(() => {
-        showScales();
-        // eslint-disable-next-line
-    }, [handleClick]);
+    // useEffect(() => {
+    //     setShowScalesBlock(true)
+    //     // eslint-disable-next-line
+    // }, [handleClick]);
 
     const showScales = () => {
-        console.log("instrument", instrument);
-        console.log("grade", grade);
         //check that state has been saved
         if (instrument !== "" && grade !== "") {
             return (
@@ -52,9 +51,9 @@ const ShowScale = ({ instrument, grade }) => {
                             let y = Math.floor(
                                 Math.random() * scale.Articulation.length
                             );
-                            console.log(y);
+                            let keySig = scale.Scales[x].Key;
                             const card = (
-                                <React.Fragment>
+                                <><React.Fragment>
                                     <CardContent
                                         sx={{
                                             bgcolor: "primary.dark",
@@ -87,24 +86,24 @@ const ShowScale = ({ instrument, grade }) => {
                                         >
                                             {scale.Scales[x].Range}
                                         </Typography>
-                                        <Typography variant="body2"
-                                        sx={{
-                                                
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
                                                 color: "primary.pale",
-                                            }}>
+                                            }}
+                                        >
                                             {scale.Articulation[y]}
-
                                         </Typography>
                                         <CardActions>
                                             {/* <Button size="small"
-                                        
-                                        >Hint</Button> */}
+
+>Hint</Button> */}
                                         </CardActions>
-                                        
                                     </CardContent>
                                 </React.Fragment>
+                                </>
                             );
-
+                    console.log("keySig", keySig)
                             return (
                                 <>
                                     <Box
@@ -119,7 +118,9 @@ const ShowScale = ({ instrument, grade }) => {
                                             {card}
                                         </Card>
                                     </Box>
+                                    <BasicModal keySig={keySig}/>
                                 </>
+                    
                             );
                         }
                     })}
@@ -127,20 +128,20 @@ const ShowScale = ({ instrument, grade }) => {
             );
         }
     };
-
     return (
         <div>
             {showScales()}
-            <br />
             <Button
                 sx={{ color: "primary.dark" }}
                 variant="contained"
-                onClick={() => {
+                value="{keySig}"
+                onClick={(event) => {
                     handleClick();
                 }}
             >
                 Next Scale
             </Button>
+           
         </div>
     );
 };
