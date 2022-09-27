@@ -15,6 +15,7 @@ const theme = createTheme({
             main: "#64D8CB",
             dark: "#000051",
             contrastText: "#E91E63",
+            pale: "#FF6090",
             spacing: 4,
         },
         secondary: {
@@ -24,20 +25,7 @@ const theme = createTheme({
             contrastText: "#000",
         },
     },
-    select: {
-        "&:before": {
-            borderColor: "#ba000d",
-        },
-        "&:after": {
-            borderColor: "#ba000d",
-        },
-        root: {
-            color: "#ba000d",
-        },
-    },
-    icon: {
-        fill: "#ba000d",
-    },
+    
 });
 
 function App() {

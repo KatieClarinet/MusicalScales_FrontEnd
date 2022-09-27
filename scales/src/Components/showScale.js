@@ -87,7 +87,11 @@ const ShowScale = ({ instrument, grade }) => {
                                         >
                                             {scale.Scales[x].Range}
                                         </Typography>
-                                        <Typography variant="body2">
+                                        <Typography variant="body2"
+                                        sx={{
+                                                
+                                                color: "primary.pale",
+                                            }}>
                                             {scale.Articulation[y]}
 
                                         </Typography>
