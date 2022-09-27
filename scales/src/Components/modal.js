@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { useEffect } from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import E_Major from "../Assets/Emajor.png"
+
 
 const style = {
   position: 'absolute',
@@ -19,12 +19,35 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({keySig}) {
+export default function BasicModal({keySig, type}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   console.log(keySig)
+  const [key, setKey] = React.useState("");
+
+  useEffect(() => {
+    const fetchImages = async () => {
+        const response = await fetch("http://localhost:3000/api/getAll");
+        const data = await response.json();
+        // console.log(data[24].images)
+        const images = data[24].images
+        console.log(type)
+        // eslint-disable-next-line
+        images.map((key) => {
+            // console.log(Object.keys(key).toString())
+            if (type === "Scale") {
+                console.log(keySig)
+                console.log(Object.values(key))
+        //    console.log("true")
+           setKey(Object.values(key))
+        } 
+});
+}
+fetchImages()
+
+  }, [keySig, type]);
+  console.log("state key", key)
 
 
   return (
@@ -43,9 +66,10 @@ export default function BasicModal({keySig}) {
           {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography> */}
-          <img src={E_Major} alt={E_Major} style={{ width: "40vw" }}/>
+          <img src={key} alt="key" style={{ width: "40vw" }}/>
         </Box>
       </Modal>
     </div>
   );
 }
+

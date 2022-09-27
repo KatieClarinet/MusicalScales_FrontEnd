@@ -52,6 +52,7 @@ const ShowScale = ({ instrument, grade }) => {
                                 Math.random() * scale.Articulation.length
                             );
                             let keySig = scale.Scales[x].Key;
+                            let type = scale.Scales[x].Type;
                             const card = (
                                 <><React.Fragment>
                                     <CardContent
@@ -118,7 +119,7 @@ const ShowScale = ({ instrument, grade }) => {
                                             {card}
                                         </Card>
                                     </Box>
-                                    <BasicModal keySig={keySig}/>
+                                    <BasicModal keySig={keySig} type={type}/>
                                 </>
                     
                             );
