@@ -15,7 +15,7 @@ const ShowScale = ({ instrument, grade }) => {
 
     useEffect(() => {
         const fetchScales = async () => {
-            const response = await fetch("http://localhost:3000/api/getAll");
+            const response = await fetch("https://scales-practice.onrender.com/api/getAll");
             const data = await response.json();
 
             setScales(data);
@@ -104,7 +104,6 @@ const ShowScale = ({ instrument, grade }) => {
                                 </React.Fragment>
                                 </>
                             );
-                    console.log("keySig", keySig)
                             return (
                                 <>
                                     <Box

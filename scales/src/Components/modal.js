@@ -23,7 +23,6 @@ export default function BasicModal({keySig, type}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(keySig)
   const [key, setKey] = React.useState("");
 
   useEffect(() => {
@@ -32,14 +31,16 @@ export default function BasicModal({keySig, type}) {
         const data = await response.json();
         // console.log(data[24].images)
         const images = data[24].images
-        console.log(type)
         // eslint-disable-next-line
         images.map((key) => {
-            // console.log(Object.keys(key).toString())
-            if (type === "Scale") {
-                console.log(keySig)
-                console.log(Object.values(key))
-        //    console.log("true")
+            let objKey = Object.keys(key).toString()
+            let objVal = Object.values(key)
+            if (objKey === keySig) {
+                console.log("objKey", objKey)
+                console.log("objVal", objVal)
+                console.log("keySig", keySig)
+                console.log("type", type)
+                
            setKey(Object.values(key))
         } 
 });
