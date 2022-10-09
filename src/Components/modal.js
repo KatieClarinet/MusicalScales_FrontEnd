@@ -27,7 +27,7 @@ export default function BasicModal({keySig, type}) {
 
   useEffect(() => {
     const fetchImages = async () => {
-        const response = await fetch("http://localhost:3000/api/getAll");
+        const response = await fetch("https://scales-practice.onrender.com/api/getAll");
         const data = await response.json();
         // console.log(data[24].images)
         const images = data[24].images
