@@ -11,6 +11,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 200,
+  height: 200,
 //   bgcolor: 'background.paper',
   bgcolor: "#64D8CB",
   border: '2px solid #000051',
@@ -24,6 +25,19 @@ export default function BasicModal({keySig, type}) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [key, setKey] = React.useState("");
+  //show or hide modal
+  const [showModal, setShowModal] = React.useState(false);
+
+  console.log("line 31", type)
+  const checkType = (type) => {
+  if (type === "Scale" || type === "Arpeggio") {
+    setShowModal(true)
+  } else {
+    setShowModal(false)
+  }
+}
+console.log("line 36", showModal)
+
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -44,16 +58,18 @@ export default function BasicModal({keySig, type}) {
            setKey(Object.values(key))
         } 
 });
+checkType(type)
 }
 fetchImages()
-
   }, [keySig, type]);
   console.log("state key", key)
 
-
+  console.log("line 65", showModal)
   return (
     <div>
+    {showModal && (
       <Button onClick={handleOpen}>Hint</Button>
+    ) }
       <Modal
         open={open}
         onClose={handleClose}
@@ -64,10 +80,8 @@ fetchImages()
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {keySig}
           </Typography>
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
-          <img src={key} alt="key" style={{ width: "40vw" }}/>
+          
+          <img src={key} alt="key" style={{ maxWidth: 180 }}/>
         </Box>
       </Modal>
     </div>

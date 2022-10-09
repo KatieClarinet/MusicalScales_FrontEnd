@@ -41,7 +41,6 @@ export default function Form({ theme }) {
                             color: "primary.dark",
                             borderRadius: 3,
                             boxShadow: 1,
-                            borderColor: "#ba000d",
                         }}
                     >
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>

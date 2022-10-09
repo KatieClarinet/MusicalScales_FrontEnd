@@ -7,12 +7,27 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import BasicModal from "./modal";
 
-const ShowScale = ({ instrument, grade }) => {
+const ShowScale = ({ instrument, grade}) => {
     const [scales, setScales] = React.useState("");
     // eslint-disable-next-line
     const [buttonClicked, setButtonClicked] = React.useState(true);
+    const [showButton, setShowButton] = React.useState(false);
+ // eslint-disable-next-line
+    // const button = (instrument, grade) => {
+        console.log(instrument.length, "line 17")
+        useEffect(() => {
+            if (instrument.length > 0) {
+                setShowButton(true)
+            } else {
+                setShowButton(false)
+            }
+            console.log (instrument, "from line 17")
+    }, [instrument]);
+    //   }
 
-
+   
+      
+  
     useEffect(() => {
         const fetchScales = async () => {
             const response = await fetch("https://scales-practice.onrender.com/api/getAll");
@@ -27,16 +42,13 @@ const ShowScale = ({ instrument, grade }) => {
         setButtonClicked((current) => !current);
  };
 
-    // useEffect(() => {
-    //     setShowScalesBlock(true)
-    //     // eslint-disable-next-line
-    // }, [handleClick]);
 
     const showScales = () => {
         //check that state has been saved
         if (instrument !== "" && grade !== "") {
             return (
                 <div>
+                <br />
                     {/* eslint-disable-next-line */}
                     {scales.map((scale) => {
                         if (
@@ -61,6 +73,7 @@ const ShowScale = ({ instrument, grade }) => {
                                             color: "primary.main",
                                             borderRadius: 3,
                                             boxShadow: 1,
+                                            height: 120,
                                         }}
                                     >
                                         <Typography
@@ -130,7 +143,7 @@ const ShowScale = ({ instrument, grade }) => {
     };
     return (
         <div>
-            {showScales()}
+            {showButton && (
             <Button
                 sx={{ color: "primary.dark" }}
                 variant="contained"
@@ -140,8 +153,9 @@ const ShowScale = ({ instrument, grade }) => {
                 }}
             >
                 Next Scale
-            </Button>
-           
+            </Button> )}
+
+            {showScales()}
         </div>
     );
 };

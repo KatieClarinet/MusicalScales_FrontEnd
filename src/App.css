@@ -1,20 +1,74 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
   height: 100vh;
   width: 100vw;
-  background-color: #000051; 
 }
 
-img {
-width: 100vw;
+.logo {
+  height: 38%;
+  align-self: center;
+  /* height: %; */
+  border-radius: 25px;
 }
 
 .form {
   padding: 3%;
   margin-bottom: 15vh;
-  /* background-color: pink; */
+  background-color: #000051; 
+}
+ .main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  background-color: #000051; 
+ }
+
+/* When the browser is at least 600px and above */
+@media screen and (min-width: 600px) {
+.App {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
+  .main {
+    border-radius: 25px;
+    width: 90%;
+    height: 90%;
+    /* /* margin-top: 5%; */
+  }
+  .form {
+    border-radius: 25px;
+    background-color: #000051; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    width: 45%;
+    align-self: center;
+    height: auto;
+    border-radius: 25px;
+  }
+}
+
+/* When the browser is at least 900px and above  */
+@media screen and (min-width: 900px) {
+  
+  .main {
+    width: 80%;
+    height: 90%;
+  }
+  .logo {
+    width: 35%;
+    height: auto;
+    align-self: center;
+    /* height: %; */
+    border-radius: 25px;
+  }
+
+}

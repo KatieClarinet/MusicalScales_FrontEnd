@@ -32,12 +32,14 @@ function App() {
     return (
         <>
             <div className="App">
-            <img src={scales} alt="logo" />
+            <div className="main">
+            <img src={scales} alt="logo" className="logo"/>
                 <ThemeProvider theme={theme}>
                     <div className="form">
                         <Form theme={theme} />
                     </div>
                 </ThemeProvider>
+            </div>
             </div>
         </>
     );
