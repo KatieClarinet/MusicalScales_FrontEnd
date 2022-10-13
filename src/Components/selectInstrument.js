@@ -26,7 +26,7 @@ export default function Form({ theme }) {
                 <FormControl fullWidth theme={theme}>
                     <InputLabel
                         id="demo-simple-select-label"
-                        sx={{ color: "primary.dark" }}
+                        sx={{ color: "primary.main" }}
                     >
                         Instrument
                     </InputLabel>
@@ -36,11 +36,24 @@ export default function Form({ theme }) {
                         value={instrument}
                         label="instrument"
                         onChange={handleChangeInstrument}
+                        labelStyle={{ color: "primary.main" }}
                         sx={{
-                            bgcolor: "primary.main",
-                            color: "primary.dark",
+                            color: "primary.main",
                             borderRadius: 3,
                             boxShadow: 1,
+                            
+                            ".MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            ".MuiSvgIcon-root ": {
+                                fill: "#E91E63",
+                            },
                         }}
                     >
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>
@@ -54,7 +67,7 @@ export default function Form({ theme }) {
                 <FormControl fullWidth>
                     <InputLabel
                         id="demo-simple-select-label"
-                        sx={{ color: "primary.dark" }}
+                        sx={{ color: "primary.main" }}
                     >
                         Grade
                     </InputLabel>
@@ -64,11 +77,24 @@ export default function Form({ theme }) {
                         value={grade}
                         label="grade"
                         onChange={handleChangeGrade}
+                        labelStyle={{ color: "primary.main" }}
                         sx={{
-                            bgcolor: "primary.main",
-                            color: "primary.dark",
+                            color: "primary.main",
                             borderRadius: 3,
                             boxShadow: 1,
+                            
+                            ".MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                                borderColor: "primary.main",
+                            },
+                            ".MuiSvgIcon-root ": {
+                                fill: "#E91E63",
+                            },
                         }}
                     >
                         <MenuItem value={1}>1</MenuItem>
