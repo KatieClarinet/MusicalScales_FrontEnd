@@ -41,10 +41,10 @@ console.log("line 36", showModal)
 
   useEffect(() => {
     const fetchImages = async () => {
-        const response = await fetch("https://scales-practice.onrender.com/api/getAll");
+        const response = await fetch("https://scales-practice.onrender.com/api/getOne/63331497b9d6092b87222777");
         const data = await response.json();
-        // console.log(data[24].images)
-        const images = data[24].images
+        const images = data.images
+        console.log("images:", images)
         // eslint-disable-next-line
         images.map((key) => {
             let objKey = Object.keys(key).toString()
