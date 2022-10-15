@@ -15,7 +15,7 @@ Please note that it can take up to 30 seconds for the backend server to run, so 
 
 ## How to Use
 
-Users should simply select their instrument (out of the following choices: Clarinet, Flute and Saxophone - I hope to add more in the future!) and grade, and a randomised scale will be picked for them to practice. I have included all of the relevant articulations for each level.
+Users can select their instrument (out of the following choices: Clarinet, Flute and Saxophone - I hope to add more in the future!) and grade, and a randomised scale will be picked for them to practice. I have included all of the relevant articulations for each level.
 
 ### To install dependencies:
 
