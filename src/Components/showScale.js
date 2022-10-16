@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import BasicModal from "./modal";
 import axios from 'axios';
 import "./showScale.css"
+import LoadingSpinner from "./spinner.js";
+
 
 const ShowScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
@@ -62,8 +64,18 @@ const ShowScale = ({ instrument, grade }) => {
             // eslint-disable-next-line
         }, []);
         console.log("State data:", scales);
-    if (error) return <div className="error">Scales Loading! <br /> Can take up to 30 seconds. <br />  Please refresh and try again</div>
-  if (!scales) return <div className="error">Scales Loading! <br /> Can take up to 30 seconds. <br />  Please refresh and try again</div>
+    if (error) return (
+
+         <><div className="error-title"><h3>SCALES LOADING</h3> </div>
+         <div className="error-text"> Can take up to 30 seconds.<br />  Please refresh and try again</div>
+         <LoadingSpinner /></>
+    )
+  if (!scales) return (
+<><div className="error-title"><h3>SCALES LOADING</h3> </div>
+         <div className="error-text"> Can take up to 30 seconds.<br />  Please refresh and try again</div>
+         <LoadingSpinner /></>
+      
+)
 
     const handleClick = (event) => {
         setButtonClicked((current) => !current);
