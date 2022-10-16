@@ -6,12 +6,15 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import BasicModal from "./modal";
+import axios from 'axios';
+import "./showScale.css"
 
 const ShowScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
     // eslint-disable-next-line
     const [buttonClicked, setButtonClicked] = React.useState(true);
     const [showButton, setShowButton] = React.useState(false);
+    const [error, setError] = React.useState(null);
     // eslint-disable-next-line
     // const button = (instrument, grade) => {
     console.log(instrument.length, "line 17");
@@ -26,16 +29,41 @@ const ShowScale = ({ instrument, grade }) => {
     //   }
 
     useEffect(() => {
-        const fetchScales = async () => {
-            const response = await fetch(
-                "https://scales-practice.onrender.com/api/getAll"
-            );
-            const data = await response.json();
+        // const fetchScales = async () => {
+            // const response = await fetch(
+            //     // "https://scales-practice.onrender.com/api/getAll"
+            //     "http://localhost:3000/api/getAll"
+            // );
 
-            setScales(data);
-        };
-        fetchScales();
-    }, []);
+            // if (!response.ok) {
+            //     console.error("error from line 36")
+            //     const message = `An error has occured: ${response.status}`;
+            //     throw new Error(message);
+            // }
+
+            // const data = await response.json();
+            // console.log("data:", data);
+            // setScales(data);
+            // return data;
+            axios.get(`https://scales-practice.onrender.com/api/getAll`).then((response) => {
+                setScales(response.data);
+              }).catch(error => {
+                  
+                      setError(error);
+
+              });
+
+
+
+        // };
+        // fetchScales().catch((error) => {
+            //     console.error("error from line 47:", error) // 'An error has occurred: 404'
+            // });
+            // eslint-disable-next-line
+        }, []);
+        console.log("State data:", scales);
+    if (error) return <div className="error">Scales Loading! <br /> Can take up to 30 seconds. <br />  Please refresh and try again</div>
+  if (!scales) return <div className="error">Scales Loading! <br /> Can take up to 30 seconds. <br />  Please refresh and try again</div>
 
     const handleClick = (event) => {
         setButtonClicked((current) => !current);
@@ -107,9 +135,7 @@ const ShowScale = ({ instrument, grade }) => {
                                             >
                                                 {scale.Articulation[y]}
                                             </Typography>
-                                            <CardActions>
-                                              
-                                            </CardActions>
+                                            <CardActions></CardActions>
                                         </CardContent>
                                     </React.Fragment>
                                 </>
