@@ -1,4 +1,9 @@
-.error {
+.error-title {
+    font-family: Fredoka;
+    color: #FF6090;
+}
+
+.error-text {
+    font-family: Fredoka;
     color: #E91E63;
-    /* background-color: brown; */
 }
