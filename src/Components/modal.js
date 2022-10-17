@@ -30,19 +30,23 @@ export default function BasicModal({keySig, type}) {
   const [showModal, setShowModal] = React.useState(false);
 
   console.log("line 31", type)
+  useEffect(() => {
+
+    checkType(type)
+  }, [type])
   const checkType = (type) => {
-  if (type === "Scale" || type === "Arpeggio") {
-    setShowModal(true)
-  } else {
-    setShowModal(false)
+    if (type === "Scale" || type === "Arpeggio") {
+      setShowModal(true)
+    } else {
+      setShowModal(false)
+    }
   }
-}
 console.log("line 36", showModal)
 
 
   useEffect(() => {
     const fetchImages = async () => {
-        const response = await fetch("https://scales-practice.onrender.com/api/getOne/63331497b9d6092b87222777");
+        const response = await fetch("https://scales-practice.onrender.com/api/getOne/634da8ebacb3e3c3a8f74625");
         const data = await response.json();
         const images = data.images
         console.log("images:", images)
@@ -59,7 +63,7 @@ console.log("line 36", showModal)
            setKey(Object.values(key))
         } 
 });
-checkType(type)
+
 }
 fetchImages()
   }, [keySig, type]);

@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import BasicModal from "./modal";
+import BasicModal from "./modal.js";
 
 const WoodWind = ({ instrument, grade, scales }) => {
     //check that state has been saved
@@ -32,6 +32,7 @@ const WoodWind = ({ instrument, grade, scales }) => {
                         } else if (scaleType === "Arpeggio 3 Oct") {
                             articulationArray =
                                 scale.Articulation.Arpeggio_3_Oct;
+                                scaleType = "Arpeggio"
                         } else if (scaleType === "Dominant 7th") {
                             articulationArray = scale.Articulation.Dominant_7th;
                         } else if (scaleType === "Diminished 7th") {
@@ -61,7 +62,8 @@ const WoodWind = ({ instrument, grade, scales }) => {
                         );
 
                         let keySig = scale.Scales[x].Key;
-                        let type = scale.Scales[x].Type;
+                        let type = scaleType;
+                        console.log(type)
                         const card = (
                             <>
                                 <React.Fragment>
@@ -81,7 +83,7 @@ const WoodWind = ({ instrument, grade, scales }) => {
                                             }}
                                             gutterBottom
                                         >
-                                            {scale.Scales[x].Type}
+                                            {type}
                                         </Typography>
                                         <br />
                                         <Typography
