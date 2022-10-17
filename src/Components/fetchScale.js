@@ -13,16 +13,16 @@ const FetchScale = ({ instrument, grade }) => {
     const [error, setError] = React.useState(null);
     // const [woodwind, setWoodwind] = React.useState(null);
     // eslint-disable-next-line
-    console.log(instrument.length, "line 17");
+    // console.log(instrument.length, "line 17");
     useEffect(() => {
         if (instrument.length > 0) {
             setShowButton(true);
         } else {
             setShowButton(false);
         }
-        console.log(instrument, "from line 17");
+        // console.log(instrument, "from line 17");
     }, [instrument]);
-console.log(instrument)
+// console.log(instrument)
     useEffect(() => {
         //     // "https://scales-practice.onrender.com/api/getAll"
         //     "http://localhost:3000/api/getAll"
@@ -37,7 +37,7 @@ console.log(instrument)
 
         // eslint-disable-next-line
     }, []);
-    console.log("State data:", scales);
+    // console.log("State data:", scales);
     if (error)
         return (
             <>

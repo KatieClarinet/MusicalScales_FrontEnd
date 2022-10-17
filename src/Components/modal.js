@@ -29,7 +29,7 @@ export default function BasicModal({keySig, type}) {
   //show or hide modal
   const [showModal, setShowModal] = React.useState(false);
 
-  console.log("line 31", type)
+  // console.log("line 31", type)
   useEffect(() => {
 
     checkType(type)
@@ -41,15 +41,15 @@ export default function BasicModal({keySig, type}) {
       setShowModal(false)
     }
   }
-console.log("line 36", showModal)
+// console.log("line 36", showModal)
 
 
   useEffect(() => {
     const fetchImages = async () => {
-        const response = await fetch("https://scales-practice.onrender.com/api/getOne/634da8ebacb3e3c3a8f74625");
+        const response = await fetch("https://scales-practice.onrender.com/api/getOne/634db40bacb3e3c3a8f7462b");
         const data = await response.json();
         const images = data.images
-        console.log("images:", images)
+        // console.log("images:", images)
         // eslint-disable-next-line
         images.map((key) => {
             let objKey = Object.keys(key).toString()
@@ -59,6 +59,7 @@ console.log("line 36", showModal)
                 console.log("objVal", objVal)
                 console.log("keySig", keySig)
                 console.log("type", type)
+                console.log("matching")
                 
            setKey(Object.values(key))
         } 
@@ -67,9 +68,9 @@ console.log("line 36", showModal)
 }
 fetchImages()
   }, [keySig, type]);
-  console.log("state key", key)
+  // console.log("state key", key)
 
-  console.log("line 65", showModal)
+  // console.log("line 65", showModal)
   return (
     <div>
     {showModal && (

@@ -9,7 +9,7 @@ import BasicModal from "./modal.js";
 const WoodWind = ({ instrument, grade, scales }) => {
     //check that state has been saved
     if (instrument !== "" && grade !== "") {
-        console.log(scales);
+        // console.log(scales);
         return (
             <div>
                 <br />
