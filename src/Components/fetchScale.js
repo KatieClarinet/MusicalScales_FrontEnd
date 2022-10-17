@@ -4,7 +4,6 @@ import axios from "axios";
 import "./fetchScale.css";
 import LoadingSpinner from "./spinner.js";
 import WoodWind from "./WoodWind.js";
-import Strings from "./Strings";
 
 const FetchScale = ({ instrument, grade }) => {
     const [scales, setScales] = React.useState("");
@@ -24,15 +23,6 @@ const FetchScale = ({ instrument, grade }) => {
         console.log(instrument, "from line 17");
     }, [instrument]);
 console.log(instrument)
-//     useEffect(() => {
-//         if (instrument === "Clarinet" || instrument === "Saxophone" || instrument === "Flute") {
-//             setWoodwind(true);
-//         } else {
-//             setWoodwind(false);
-//         }
-//         console.log(instrument, "from line 17");
-//     }, [instrument]);
-// console.log("woodwind is:", woodwind)
     useEffect(() => {
         //     // "https://scales-practice.onrender.com/api/getAll"
         //     "http://localhost:3000/api/getAll"
