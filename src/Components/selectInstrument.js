@@ -4,9 +4,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import ShowScale from "./showScale";
+import ShowScale from "./fetchScale";
 
-export default function Form({ theme }) {
+export default function SelectInstrument({ theme }) {
     const [instrument, setinstrument] = React.useState("");
     const [grade, setGrade] = React.useState("");
 
@@ -59,6 +59,7 @@ export default function Form({ theme }) {
                         <MenuItem value={"Clarinet"}>Clarinet</MenuItem>
                         <MenuItem value={"Flute"}>Flute</MenuItem>
                         <MenuItem value={"Saxophone"}>Saxophone</MenuItem>
+                        <MenuItem value={"Violin"}>Violin</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
