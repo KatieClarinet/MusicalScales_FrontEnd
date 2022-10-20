@@ -60,6 +60,7 @@ export default function SelectInstrument({ theme }) {
                         <MenuItem value={"Flute"}>Flute</MenuItem>
                         <MenuItem value={"Saxophone"}>Saxophone</MenuItem>
                         <MenuItem value={"Violin"}>Violin</MenuItem>
+                        <MenuItem value={"Cello"}>Cello</MenuItem>
                     </Select>
                 </FormControl>
             </Box>

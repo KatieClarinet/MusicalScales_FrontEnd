@@ -55,6 +55,9 @@ const WoodWind = ({ instrument, grade, scales }) => {
                         } else if (scaleType === "Whole-Tone Scale") {
                             articulationArray =
                                 scale.Articulation.Whole_Tone_Scale;
+                        } else if (scaleType === "Scale in Thumb Position") {
+                            articulationArray =
+                                scale.Articulation.Scale_Thumb;
                         }
 
                         let y = Math.floor(
