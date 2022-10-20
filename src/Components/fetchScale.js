@@ -77,7 +77,7 @@ const FetchScale = ({ instrument, grade }) => {
                 <Button
                     sx={{ color: "primary.dark", 
                     '&:hover': {
-      backgroundColor: 'primary.pale',
+      backgroundColor: 'primary.main',
       
   },}}
                     
